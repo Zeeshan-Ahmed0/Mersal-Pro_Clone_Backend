@@ -1,4 +1,4 @@
-import { enums } from "../Utils/enums";
+import { enums } from "../Utils/enums.ts";
 
 export const Timelines = (sequelize: any, DataTypes: any) => {
   return sequelize.define("timelines", {

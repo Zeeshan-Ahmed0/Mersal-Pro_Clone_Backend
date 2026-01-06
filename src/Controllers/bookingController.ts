@@ -1,9 +1,9 @@
-import { db } from "../Models";
+import { db } from "../Models/index.ts";
 import { sendSuccess, sendError } from "./../Utils/helpers.ts";
 
 export const getBooking = async (req: any, res: any) => {
   try {
-    const booking = db.Bookings.findOne({ where: { id: req.params.id } });
+    const booking= await db.Bookings.findOne({ where: { id: req.params.id } });
     sendSuccess(res, booking);
   } catch (error) {
     sendError(res, error);
@@ -12,7 +12,7 @@ export const getBooking = async (req: any, res: any) => {
 
 export const getAllBookings = async (req: any, res: any) => {
   try {
-    const bookings = db.Bookings.findAll();
+    const bookings= await db.Bookings.findAll();
     sendSuccess(res, bookings);
   } catch (error) {
     sendError(res, error);
@@ -32,7 +32,7 @@ export const createBooking = async (req: any, res: any) => {
       latitude,
       longitude,
     } = req.body;
-    const booking = db.Bookings.create({
+    const booking= await db.Bookings.create({
       name,
       email,
       password,
@@ -51,7 +51,7 @@ export const createBooking = async (req: any, res: any) => {
 
 export const updateBooking = async (req: any, res: any) => {
   try {
-    const booking = db.Bookings.findOne({ where: { id: req.params.id } });
+    const booking= await db.Bookings.findOne({ where: { id: req.params.id } });
     sendSuccess(res, booking);
   } catch (error) {
     sendError(res, error);

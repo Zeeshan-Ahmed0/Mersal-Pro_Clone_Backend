@@ -3,7 +3,7 @@ import {
   createEmployee,
   getEmployee,
   getAllEmployees,
-} from "../Controllers/employeeController";
+} from "../Controllers/employeeController.ts";
 
 const router = express.Router();
 
@@ -11,4 +11,4 @@ router.get("/get/:id", getEmployee);
 router.get("/get-all", getAllEmployees);
 router.post("/create", createEmployee);
 
-export const employeeRouter = router;
+export default router;

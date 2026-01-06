@@ -1,4 +1,4 @@
-import { enums } from "../Utils/enums";
+import { enums } from "../Utils/enums.ts";
 
 export const Bookings = (sequelize: any, DataTypes: any) => {
   return sequelize.define("bookings", {
@@ -12,7 +12,7 @@ export const Bookings = (sequelize: any, DataTypes: any) => {
       allowNull: false,
     },
     type: {
-      type: DataTypes.ENUMS(enums.DIRECT, enums.INDIRECT),
+      type: DataTypes.ENUM(enums.DIRECT, enums.INDIRECT),
       defaultValue: "Direct",
     },
     status: {

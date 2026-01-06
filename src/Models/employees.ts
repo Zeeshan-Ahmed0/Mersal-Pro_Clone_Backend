@@ -41,7 +41,7 @@ export const Employees = (sequelize: any, DataTypes: any) => {
     latitude: {
       type: DataTypes.STRING,
     },
-    longiitude: {
+    longitude: {
       type: DataTypes.STRING,
     },
   });

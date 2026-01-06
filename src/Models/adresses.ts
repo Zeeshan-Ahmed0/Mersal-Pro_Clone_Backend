@@ -1,4 +1,4 @@
-import { enums } from "../Utils/enums";
+import { enums } from "../Utils/enums.ts";
 
 export const Addresses = (sequelize: any, DataTypes: any) => {
   return sequelize.define("addresses", {
@@ -8,7 +8,7 @@ export const Addresses = (sequelize: any, DataTypes: any) => {
       autoIncrement: true,
     },
     type: {
-      type: DataTypes.ENUMS(enums.PICKUP, enums.DELIVERY),
+      type: DataTypes.ENUM(enums.PICKUP, enums.DELIVERY),
       defaultValue: enums.PICKUP,
     },
     address: {
