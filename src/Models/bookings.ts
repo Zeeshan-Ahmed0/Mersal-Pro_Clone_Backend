@@ -15,10 +15,19 @@ export const Bookings = (sequelize: any, DataTypes: any) => {
       type: DataTypes.ENUM(enums.DIRECT, enums.INDIRECT),
       defaultValue: "Direct",
     },
+    deliveryMode: {
+      type: DataTypes.ENUM(
+        enums.DIRECT,
+        enums.DOOR_TO_DOOR,
+        enums.DOOR_TO_DROPPOINT,
+        enums.DROPPOINT_TO_DROPPOINT,
+        enums.DROPPOINT_TO_DOOR
+      ),
+    },
     status: {
       type: DataTypes.STRING,
       allowNull: false,
-      defaultValue: enums.PENDING,
+      defaultValue: enums.UNASSIGNED,
     },
     senderName: {
       type: DataTypes.STRING,

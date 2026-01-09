@@ -17,7 +17,7 @@ app.get("/api", (req, res) => res.send("API is running"));
 
 app.listen(4000, () =>
   sequelize
-    .authenticate()
+    .sync({ alter: true })
     .then(() => console.log("Server is running on PORT 4000"))
     .catch((err) => console.log(err))
 );

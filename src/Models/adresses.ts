@@ -11,6 +11,9 @@ export const Addresses = (sequelize: any, DataTypes: any) => {
       type: DataTypes.ENUM(enums.PICKUP, enums.DELIVERY),
       defaultValue: enums.PICKUP,
     },
+    bookingId: {
+      type: DataTypes.INTEGER,
+    },
     address: {
       type: DataTypes.STRING,
     },

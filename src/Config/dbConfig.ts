@@ -14,4 +14,9 @@ const sequelize = new Sequelize(
   }
 );
 
+sequelize
+  .authenticate()
+  .then(() => console.log("Database connected suuccessfully"))
+  .catch((error) => console.log("Error connecting Database", error));
+
 export { sequelize };

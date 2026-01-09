@@ -10,6 +10,7 @@ const sendSuccess = (
 const sendError = (res: any, error: any, status = 500) => {
   const message =
     typeof error == "string" ? error : error.message || "Interna; Server Error";
+  console.log(message);
   return res.status(status).json({ success: false, message, status });
 };
 
