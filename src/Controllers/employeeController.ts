@@ -1,9 +1,9 @@
-import { db } from "../Models";
+import { db } from "../Models/index.ts";
 import { sendSuccess, sendError } from "./../Utils/helpers.ts";
 
 export const getEmployee = async (req: any, res: any) => {
   try {
-    const employee = db.Employees.findOne({ where: { id: req.params.id } });
+    const employee= await db.Employees.findOne({ where: { id: req.params.id } });
     sendSuccess(res, employee);
   } catch (error) {
     sendError(res, error);
@@ -12,7 +12,7 @@ export const getEmployee = async (req: any, res: any) => {
 
 export const getAllEmployees = async (req: any, res: any) => {
   try {
-    const employees = db.Employees.findAll();
+    const employees= await db.Employees.findAll();
     sendSuccess(res, employees);
   } catch (error) {
     sendError(res, error);
@@ -32,7 +32,7 @@ export const createEmployee = async (req: any, res: any) => {
       latitude,
       longitude,
     } = req.body;
-    const employee = db.Employees.create({
+    const employee= await db.Employees.create({
       name,
       email,
       password,

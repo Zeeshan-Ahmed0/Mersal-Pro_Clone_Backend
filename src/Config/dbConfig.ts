@@ -10,7 +10,13 @@ const sequelize = new Sequelize(
   {
     host: process.env.DB_HOST as string,
     dialect: process.env.DB_DIALECT as any,
+    logging: false,
   }
 );
+
+sequelize
+  .authenticate()
+  .then(() => console.log("Database connected suuccessfully"))
+  .catch((error) => console.log("Error connecting Database", error));
 
 export { sequelize };
